@@ -78,7 +78,6 @@ pip install -r flask_app/requirements.txt
 4. Run the mock API:
 bash
 python flask_app/app.py
-Run the test modules:
 
 5. Run the test modules:
 bash
