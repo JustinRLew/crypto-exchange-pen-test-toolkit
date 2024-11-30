@@ -27,6 +27,7 @@ This project demonstrates the importance of secure coding and proactive penetrat
 ---
 
 ## File Structure
+```plaintext
 crypto-exchange-pen-test-toolkit/
 ├── api_tester.py
 ├── input_validation_tester.py
@@ -46,6 +47,7 @@ crypto-exchange-pen-test-toolkit/
 │   └── test_report.json
 ├── README.md
 └── LICENSE
+
 
 
 ---
