@@ -74,7 +74,6 @@ source venv/bin/activate
 
 bash
 pip install -r flask_app/requirements.txt
-Run the mock API:
 
 4. Run the mock API:
 bash
