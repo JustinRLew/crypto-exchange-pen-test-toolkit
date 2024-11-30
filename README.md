@@ -6,8 +6,6 @@ The Crypto Exchange Penetration Testing Toolkit is designed to test and identify
 - **Improper input validation** (e.g., SQL injection, XSS attacks)
 - **Weakness reporting** with severity rankings and recommendations.
 
-This project demonstrates the importance of secure coding and proactive penetration testing in the fintech industry, especially to safeguard user assets.
-
 ---
 
 ## Features
