@@ -6,6 +6,8 @@ The Crypto Exchange Penetration Testing Toolkit is designed to test and identify
 - **Improper input validation** (e.g., SQL injection, XSS attacks)
 - **Weakness reporting** with severity rankings and recommendations.
 
+This project demonstrates the importance of secure coding and proactive penetration testing in the fintech industry, especially to safeguard user assets.
+
 ---
 
 ## Features
@@ -72,10 +74,12 @@ source venv/bin/activate
 
 bash
 pip install -r flask_app/requirements.txt
+Run the mock API:
 
 4. Run the mock API:
 bash
 python flask_app/app.py
+Run the test modules:
 
 5. Run the test modules:
 bash

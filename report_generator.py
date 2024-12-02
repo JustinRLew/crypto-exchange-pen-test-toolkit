@@ -1,0 +1,107 @@
+import json
+import matplotlib.pyplot as plt
+
+# Define the report structure as a dictionary
+report = {
+    "tests": []
+}
+
+def add_test_result(test_name, details, severity, recommendation):
+    """
+    Adds a test result to the report.
+
+    Args:
+    - test_name (str): The name of the test performed.
+    - details (str): A description of the issue identified.
+    - severity (str): The severity level (Low, Medium, High).
+    - recommendation (str): Suggested actions to fix the issue.
+    """
+    report["tests"].append({
+        "test_name": test_name,
+        "details": details,
+        "severity": severity,
+        "recommendation": recommendation
+    })
+
+def generate_json_report(filename="test_report.json"):
+    """
+    Generates a JSON report from the collected test results.
+
+    Args:
+    - filename (str): The name of the JSON file to save the report.
+    """
+    with open(filename, "w") as file:
+        json.dump(report, file, indent=4)
+    print(f"Report saved as {filename}")
+
+def visualize_severity():
+    """
+    Visualizes the severity levels of vulnerabilities as a bar chart.
+    """
+    # Count the occurrences of each severity level
+    severities = [test["severity"] for test in report["tests"]]
+    severity_counts = {s: severities.count(s) for s in set(severities)}
+
+    # Create a bar chart
+    plt.bar(severity_counts.keys(), severity_counts.values())
+    plt.title("Vulnerability Severity Distribution")
+    plt.xlabel("Severity Level")
+    plt.ylabel("Number of Vulnerabilities")
+    plt.show()
+
+def summarize_report():
+    """
+    Prints a summary of the report to the console.
+    """
+    print("\nReport Summary:")
+    for test in report["tests"]:
+        print(f"Test: {test['test_name']}")
+        print(f"Details: {test['details']}")
+        print(f"Severity: {test['severity']}")
+        print(f"Recommendation: {test['recommendation']}")
+        print("-" * 40)
+
+# Example usage: Adding test results and generating reports
+if __name__ == "__main__":
+    """
+    This script can be run directly to add sample test results, generate a JSON report, 
+    visualize severity levels, and print a summary.
+    """
+
+    # Example test results
+    add_test_result(
+        test_name="Token Validation Test",
+        details="API accepts tampered tokens.",
+        severity="High",
+        recommendation="Ensure proper token verification mechanisms are implemented."
+    )
+
+    add_test_result(
+        test_name="SQL Injection Test",
+        details="API vulnerable to SQL injection in the login endpoint.",
+        severity="High",
+        recommendation="Use parameterized queries to prevent SQL injection."
+    )
+
+    add_test_result(
+        test_name="XSS Test",
+        details="Input fields allow execution of JavaScript code.",
+        severity="Medium",
+        recommendation="Sanitize user inputs to prevent cross-site scripting."
+    )
+
+    add_test_result(
+        test_name="Large Payload Handling",
+        details="API crashes when handling large inputs.",
+        severity="Low",
+        recommendation="Implement input size limits and proper error handling."
+    )
+
+    # Generate and save the JSON report
+    generate_json_report()
+
+    # Visualize severity distribution
+    visualize_severity()
+
+    # Print a summary of the report
+    summarize_report()
