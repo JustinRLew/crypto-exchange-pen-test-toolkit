@@ -1,7 +1,0 @@
-Flask==2.3.2            # Web framework for building the mock API
-Werkzeug==2.3.2         # Sub-dependency of Flask for WSGI support
-requests==2.31.0        # HTTP requests for testing API endpoints
-matplotlib==3.8.0       # Visualization library for vulnerability charts
-numpy==1.26.0           # Sub-dependency of matplotlib
-pytest==7.4.0           # Testing framework for unit tests
-pytest-flask==1.2.0     # Optional: Flask-specific testing tools
